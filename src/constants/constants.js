@@ -1,0 +1,1 @@
+export const MELI_ENDPOINT =  "http://localhost:8200/api/items";

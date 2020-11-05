@@ -1,0 +1,29 @@
+.card {
+    padding: 16px;
+}
+
+.card .img-list {
+    max-width: 180px;
+    max-height: 180px;
+    padding: 16px;
+    border-radius: 14px;  
+}
+
+.card h4 {
+    margin-bottom: 32px;
+    color: #333333
+}
+
+.card small {
+    color: #666666;
+}
+
+.text-link {
+    color: inherit !important;
+    text-decoration: inherit !important;
+}
+
+
+.img_shipping {
+    width: 20px;
+}

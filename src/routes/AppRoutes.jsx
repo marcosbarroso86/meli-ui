@@ -15,13 +15,13 @@ export const AppRoutes = () => {
     <Router>
         <NavBar />
         <div className="container">
-        <Switch>
-          <Route exact path='/items/:id' component={ DetailScreen } />
-          <Route exact path='/items' component={ ResultScreen } />
-          <Route path="/" component={ HomeScreen } />
-          <Redirect to="/" />
-        </Switch>
-      </div>
+          <Switch>
+            <Route exact path='/items/:id' component={ DetailScreen } />
+            <Route exact path='/items' component={ ResultScreen } />
+            <Route path="/" component={ HomeScreen } />
+            <Redirect to="/" />
+          </Switch>
+        </div>
     </Router>
   );
 }

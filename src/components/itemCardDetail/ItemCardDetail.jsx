@@ -1,30 +1,46 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import './ItemCardDetail.css'
 
 export const ItemCardDetail = () => {
-    return (        
-        <div className="card mt-5">
+
+    const item = useSelector(state => state.items.detail);
+
+    const {
+        title , price , condition , free_shipping, sold_quantity, description , pictures
+    } = item 
+
+    const handleParser = (condition) => {
+        
+    }
+    
+    return item ? (        
+        <div className="card fade-in margin-bottom-50">
             <div className="row">
-                <div className="col-md-7">
-                    <img  style={ {width: 680} } src="https://medias.musimundo.com/medias/sys_master/images/images/he2/h4f/10186366910494/00289082-138967-138967-01-138967-01.jpg" 
-                    className="card-img" alt=""/>
+                <div className="col-md-8">
+                    <img src={ pictures && pictures[0].url} className="img-detail" alt={ title }/>
                 </div>
-                <div className="col-md-5">
+                <div className="col-md-4">
                     <div className="card-body">
-                        <h5 className="card-title">  superhero  </h5>
-                        <h2 className="card-text"> $24980 </h2>
-                        <button className="btn btn-primary btn-block">comprar</button>
+                        <small className="card-text font-size-14 padding-top-32"> 
+                            { condition == 'new' ? 'nuevo' : 'usado'  } - { sold_quantity } vendidos 
+                        </small>
+                        <h5 className="card-title font-size-24 padding-bottom-35">  { title }  </h5>
+                        <h2 className="card-title font-size-46 padding-bottom-35"> ${ price && new Intl.NumberFormat("de-DE").format(price)}</h2>
+                        <button className="btn btn-buy btn-block">Comprar</button>
                     </div>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-12">
                     <div className="card-footer bg-transparent">
+                    <h2 className="card-title font-size-28">Descripción del producto </h2>
                     <p className="card-text">
-                        <small> first_appearance  </small>
+                        <p className="font-size-16"> { description } </p>
                     </p>
                     </div>
                 </div>
             </div>
         </div>
-    )
+     ) : null
 }
